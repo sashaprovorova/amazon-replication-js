@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrays and loops</title>
+</head>
+<body>
+
+  <script>
+    /*
+    const myArray = [10, 20, 30];
+    console.log(myArray);
+    console.log(myArray[0]);
+    myArray[0] = 99;
+    console.log(myArray);
+
+    const newArray = [1, 'hello', true, {name: 'socks'}, [1, 2]];
+    //special type of object, returns object 
+    console.log(typeof[1,2]);
+    //to check if array, the following is used instead: 
+    console.log(Array.isArray([1, 2]));
+    
+    console.log(myArray.length);
+
+    //add a new value to the end of an array
+    myArray.push(100);
+    console.log(myArray);
+
+    //removes 1 value starting position 0 
+    myArray.splice(0, 1);
+    console.log(myArray);
+    */
+
+    /*
+    let i =1; 
+    while (i <= 5){
+      console.log(i);
+      i++;
+    }
+
+    for (let i=1; i<=5; i++){
+      console.log(i);
+    }
+
+    //while is better for nonstandard loops 
+    let randnomNumber = 0;
+    while(randnomNumber<0.5){
+      randnomNumber = Math.random();
+    }
+
+    console.log(randnomNumber);
+    */
+
+    /*
+   const todoList = [
+    'make dinner', 
+    'wash dishes', 
+    'watch youtube'
+   ]
+
+   for(let i = 0; i < todoList.length; i++){
+    const value = todoList[i];
+    console.log(value);
+   }
+
+   //accumulator pattern
+   const nums = [1, 1, 3];
+   const total = 0;
+   
+   for (let i = 0; i < nums.length; i++){
+    const num = nums[i];
+    total += num;
+   }
+
+   console.log(total);
+
+
+   const numsDoubled = [];
+   for (let i = 0; i < nums.length; i++){
+    const num = nums[i];
+    numsDoubled.push(num*2);
+   }
+   console.log(numsDoubled);
+  */
+  
+  //doesnt actually copy, just references the first array
+  const array1 =[1, 2, 3];
+  const array2 = array1.slice(); //unless slice is used
+  //can check this by adding value to only one, but notice changes in both
+  array2.push(4);
+  console.log(array1);
+  console.log(array2);
+
+  //shortcut to save the first two values from the array and save it as variables
+  const [firstValue, secondValue] = [1, 2, 3];
+
+  for (let i = 1; i <= 10; i++){
+    if(i%3===0){ //check is remainder is zero or divisible by 3
+      continue;
+    }
+    console.log(i);
+    if (i === 8){
+      break; //stops early
+    }
+  }
+
+  let i =1; 
+  while (i<=10){
+    if(i%3 === 0){
+      i++; //need ++ to avoid infinite loop since continue skips increment step
+      continue;
+    }
+    console.log(i);
+    i++;
+  }
+
+  function doubleArray(nums){
+    const numsDoubled = [];
+    for (let i = 0; i < nums.length; i++){
+      const num = nums[i];
+      if (num === 0 ) {
+        return numsDoubled;
+        //like a break, ends the loop
+      }
+      numsDoubled.push(num*2);
+    }
+    return numsDoubled;
+  }
+  console.log(doubleArray([1, 1, 3]));
+  console.log(doubleArray([2, 2, 5]));
+
+  </script>
+
+</body>
+</html>
