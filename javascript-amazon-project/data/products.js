@@ -59,6 +59,36 @@ class Clothing extends Product{
   }
 }
 
+/* built in class
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleTimeString());
+*/
+
+/* undefined since nothing to point to yet, not created yet
+console.log(this);
+const object2 = {
+  a: 2, 
+  b: this.a
+};
+*/
+
+/*
+function logThis() {
+  console.log(this);
+}
+
+logThis();
+logThis.call('hello');
+
+//arrow functions dont change the value of this
+const object3 = {
+  method: () => {
+    console.log(this); //keeps the value that was defined outside the function 
+  }
+}
+*/
+
 export const products = [
   {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
