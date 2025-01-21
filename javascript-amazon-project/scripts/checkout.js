@@ -5,15 +5,33 @@ import {renderPaymentSummary} from './checkout/paymentSummary.js';
 import {loadProducts, loadProductsFetch} from '../data/products.js';
 import { loadCart } from '../data/cart.js';
 
+
+async function loadPage(){
+
+  await loadProductsFetch();
+
+  await new Promise((resolve)=>{
+    loadCart(()=>{
+      resolve();
+    });
+  });
+
+  renderOrderSummary();
+  renderPaymentSummary();
+
+}
+loadPage();
+
+/*
 // runs and waits for multiple promises 
 Promise.all([
   loadProductsFetch(), //replaces the following
-  /*
-  new Promise((resolve) => {
-    loadProducts(()=>{
-      resolve('value1'); //shares values between two steps
-    });
-  }), */
+  
+  // new Promise((resolve) => {
+  //   loadProducts(()=>{
+  //     resolve('value1'); //shares values between two steps
+  //   });
+  // }),
   new Promise((resolve)=>{
     loadCart(()=>{
       resolve();
@@ -25,6 +43,7 @@ Promise.all([
   renderOrderSummary();
   renderPaymentSummary();
 });
+*/
 
 /*
 //resolve similar to done, lets us control when to go to the next step
